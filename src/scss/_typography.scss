@@ -1,0 +1,47 @@
+$font-family--h1: '';
+$font-family--h2: '';
+$font-family--h3: '';
+$font-family--body: '';
+
+$font-size--h1: 24px;
+$font-size--h2: 19px;
+$font-size--h3: 12px;
+$font-size--body: 14px;
+
+$font-weight--h1: 700;
+$font-weight--h2: 700;
+$font-weight--h3: 700;
+$font-weight--body: 400;
+
+$line-height--h1: 30px;
+$line-height--h2: 24px;
+$line-height--h3: 15px;
+$line-height--body: 24px;
+
+.typo-h1 {
+  font-size: $font-size--h1;
+  font-family: $font-family--h1;
+  font-weight: $font-weight--h1;
+  line-height: $line-height--h1;
+}
+
+.typo-h2 {
+  font-size: $font-size--h2;
+  font-family: $font-family--h2;
+  font-weight: $font-weight--h2;
+  line-height: $line-height--h2;
+}
+
+.typo-h3 {
+  font-size: $font-size--h3;
+  font-family: $font-family--h3;
+  font-weight: $font-weight--h3;
+  line-height: $line-height--h3;
+}
+
+.typo-body {
+  font-size: $font-size--body;
+  font-family: $font-family--body;
+  font-weight: $font-weight--body;
+  line-height: $line-height--body;
+}
