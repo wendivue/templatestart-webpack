@@ -1,0 +1,13 @@
+@mixin setupFont($family, $style, $weight, $display, $path) {
+  @font-face {
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    font-display: $display;
+    src: url('#{$path}.woff2') format('woff2'),
+      url('#{$path}.eot?#iefix') format('embedded-opentype'),
+      url('#{$path}.woff') format('woff'),
+      url('#{$path}.ttf') format('truetype'),
+      url('#{$path}.svg#+#{$family}') format('svg');
+  }
+}

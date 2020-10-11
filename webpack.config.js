@@ -6,8 +6,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
+const pages = ['index'];
+
 const config = {
-  entry: ['./src/js/index.js', './src/scss/style.scss'],
+  entry: { filename: './src/index.js' },
   output: {
     filename: './js/bundle.js',
   },
@@ -35,7 +37,7 @@ const config = {
       },
       {
         test: /\.(sass|scss)$/,
-        include: path.resolve(__dirname, 'src/scss'),
+        include: path.resolve(__dirname, 'src/'),
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -66,6 +68,16 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'img/',
+            name: '[name].[ext]',
+          },
+        },
+      },
     ],
   },
   plugins: [
@@ -78,12 +90,17 @@ const config = {
     new MiniCssExtractPlugin({
       filename: './css/style.bundle.css',
     }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/template/index.html',
-    }),
   ],
 };
+
+pages.forEach((page) => {
+  config.plugins.push(
+    new HtmlWebpackPlugin({
+      filename: `${page}.html`,
+      template: `./src/template/${page}.html`,
+    })
+  );
+});
 
 module.exports = (env, argv) => {
   if (argv.mode === 'production') {
